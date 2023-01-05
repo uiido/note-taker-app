@@ -1,7 +1,3 @@
-// Sets Port
-const PORT = process.env.PORT || 3001;
-
-// Sets requirements
 const express = require('express');
 const PORT = process.env.PORT || 3001;
 
