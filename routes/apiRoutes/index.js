@@ -9,5 +9,11 @@ router.get("notes", (req, res) => {
     res.json(results);
 });
 
+router.post("/notes", (req, res) => {
+    req.body.id = uuidv4();
+    const newNote = createNewNote(req.body, notes);
+    res.json;
+});
+
 // Router
 module.exports = router;
