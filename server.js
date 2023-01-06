@@ -3,6 +3,13 @@ const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Routes
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
+// // UUID
+// const uuid = require('./helpers/uuid');
+
 app.get('/', (req, res) => {
     res.send('Note Taker');
 });
@@ -11,6 +18,10 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Middleware for routes
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 // Listener
 app.listen(PORT, () => {
