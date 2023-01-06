@@ -10,6 +10,7 @@ const htmlRoutes = require('./routes/htmlRoutes');
 // // UUID
 // const uuid = require('./helpers/uuid');
 
+// Get Response
 app.get('/', (req, res) => {
     res.send('Note Taker');
 });
