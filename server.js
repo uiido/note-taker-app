@@ -11,9 +11,9 @@ const htmlRoutes = require('./routes/htmlRoutes');
 // const uuid = require('./helpers/uuid');
 
 // Get Response
-app.get('/', (req, res) => {
-    res.send('Note Taker');
-});
+// app.get('/', (req, res) => {
+//     res.send('Note Taker');
+// });
 
 // Middleware for JSON and URL Encoded
 app.use(express.static('public'));
