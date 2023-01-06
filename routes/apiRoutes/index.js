@@ -15,5 +15,11 @@ router.post("/notes", (req, res) => {
     res.json;
 });
 
+router.delete("/notes/:id", (req, resp) => {
+    const parameters = req.params.id;
+    updateDatabase(params, notes);
+    res.redirect('');
+});
+
 // Router
 module.exports = router;
