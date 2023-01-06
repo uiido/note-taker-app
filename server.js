@@ -7,14 +7,6 @@ const app = express();
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
-// // UUID
-// const uuid = require('./helpers/uuid');
-
-// Get Response
-// app.get('/', (req, res) => {
-//     res.send('Note Taker');
-// });
-
 // Middleware for JSON and URL Encoded
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
