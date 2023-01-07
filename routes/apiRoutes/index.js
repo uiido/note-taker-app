@@ -1,25 +1,9 @@
 // Variables
 const router = require('express').Router();
-// const { v4: uuidv4 } = require('uuid');
-const { notes } = require("../../db/db.json");
+const noteRoutes = require('./notesRoutes.js');
 
-// Converts notes to JSON data
-router.get("notes", (req, res) => {
-    let results = notes;
-    res.json(results);
-});
-
-router.post("/notes", (req, res) => {
-    // req.body.id = uuidv4(); 
-    const newNote = createNote(req.body, notes);
-    res.json(newNote);
-});
-
-router.delete("/notes/:id", (req, resp) => {
-    const parameters = req.params.id;
-    updateDatabase(params, notes);
-    res.redirect('');
-});
+// Middleware
+router.use(noteRoutes);
 
 // Router
 module.exports = router;
