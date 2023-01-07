@@ -1,24 +1,26 @@
 // Variables
-const router = require('express').Router();
-const { createNote } = require('../../db/db.json');
-const { notes } = require("../../db/db.json");
+const router = require("express").Router();
+const { notes } = require('../../db/db');
+const { createNote, deleteNote } = require('../../lib/notes');
 
-// Converts notes to JSON data
-router.get("notes", (req, res) => {
-    let results = notes;
-    res.json(results);
-});
+// Recover Notes
+router.get('/notes', (req, res) => {
+    let saved = notes;
+    res.json(saved);
+})
 
-router.post("/notes", (req, res) => {
-    const newNote = createNote(req.body, notes);
-    res.json(newNote);
-});
+// Make Notes
+router.post('/notes', (req, res) => {
+    req.body.id = notes.length.toString();
+    let notes = createNote(req.body, notes);
+    res.json(notes);
+})
 
-router.delete("/notes/:id", (req, resp) => {
-    const parameters = req.params.id;
-    updateDatabase(params, notes);
-    res.redirect('');
-});
+// Delete Notes
+router.delete('/notes/:id', (req, res) => {
+    deleteNote(notes, req.params.id);
+    res.json(notes);
+})
 
 // Router
 module.exports = router;

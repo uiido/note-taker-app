@@ -1,9 +1,9 @@
 // Variables
 const router = require('express').Router();
-const noteRoutes = require('./notesRoutes.js');
+const notesRoutes = require('./notesRoutes.js');
 
 // Middleware
-router.use(noteRoutes);
+router.use(notesRoutes);
 
 // Router
 module.exports = router;
