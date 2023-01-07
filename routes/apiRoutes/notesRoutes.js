@@ -1,7 +1,7 @@
 // Variables
 const router = require("express").Router();
 const { notes } = require('../../db/db');
-const { createNote, deleteNote } = require('../../lib/notes');
+const { createNewNote, deleteNote } = require('../../lib/notes');
 
 // Recover Notes
 router.get('/notes', (req, res) => {
@@ -12,7 +12,7 @@ router.get('/notes', (req, res) => {
 // Make Notes
 router.post('/notes', (req, res) => {
     req.body.id = notes.length.toString();
-    let note = createNote(req.body, notes);
+    let note = createNewNote(req.body, notes);
     res.json(note);
 })
 
