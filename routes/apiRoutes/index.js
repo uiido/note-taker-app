@@ -11,8 +11,8 @@ router.get("notes", (req, res) => {
 
 router.post("/notes", (req, res) => {
     // req.body.id = uuidv4(); 
-    const newNote = createNewNote(req.body, notes);
-    res.json;
+    const newNote = createNote(req.body, notes);
+    res.json(newNote);
 });
 
 router.delete("/notes/:id", (req, resp) => {
