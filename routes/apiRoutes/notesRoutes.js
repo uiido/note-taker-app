@@ -12,8 +12,8 @@ router.get('/notes', (req, res) => {
 // Make Notes
 router.post('/notes', (req, res) => {
     req.body.id = notes.length.toString();
-    let notes = createNote(req.body, notes);
-    res.json(notes);
+    let note = createNote(req.body, notes);
+    res.json(note);
 })
 
 // Delete Notes
